@@ -1,3 +1,4 @@
-# udemy-course
+# React Udemy course
+## by Vladelen Minin
 
-[Link to Udemy course of Vladelin Minin](https://www.udemy.com/home/my-courses/learning/)
+[Link to Udemy course](https://www.udemy.com/home/my-courses/learning/)
