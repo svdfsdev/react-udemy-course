@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import './Car.css';
+import classes from './Car.module.scss';
 
 const Car = (props) => {
   const { name, year, onChangeName, removeCar } = props;
@@ -27,7 +27,7 @@ const Car = (props) => {
   }
 
   return (
-    <div className="Car" style={style}>
+    <div className={classes.Car} style={style}>
       <p>
         Car name: <strong>{name}</strong>
       </p>
