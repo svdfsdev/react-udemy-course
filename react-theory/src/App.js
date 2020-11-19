@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
-import './App.scss';
 import Car from './Car/Car';
+import './App.scss';
 
 class App extends Component {
-  state = {
-    cars: [
-      { name: 'Ford', year: 2018 },
-      { name: 'Audi', year: 2016 },
-      { name: 'Mazda', year: 2010 },
-    ],
-    pageTitle: 'React components',
-    showCars: true,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      cars: [
+        { name: 'Ford', year: 2018 },
+        // { name: 'Audi', year: 2016 },
+        // { name: 'Mazda', year: 2010 },
+      ],
+      pageTitle: 'React components',
+      showCars: false,
+    };
+  }
+
+  componentWillMount() {
+    console.log('App componentWillMount');
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount');
+  }
 
   changeTitleHandler = (newTitle) => {
     this.setState({
@@ -41,26 +53,20 @@ class App extends Component {
   };
 
   render() {
-    const appStyle = {
-      container: {
-        textAlign: 'center',
-      },
-      cars: {
-        width: '400px',
-        margin: 'auto',
-        paddingTop: '20px',
-      },
-      h1: {
-        color: 'blue',
-      },
-    };
+    console.log('App render');
 
     return (
-      <div style={appStyle.container}>
-        <h1 style={appStyle.h1}>{this.state.pageTitle}</h1>
-        <button onClick={this.toogleCarsHandle}>Toogle Cars</button>
+      <div className="container">
+        <h1>{this.state.pageTitle}</h1>
+        {/* <h1>{this.props.title}</h1> */}
+        <button
+          className="toogle-btn"
+          onClick={this.toogleCarsHandle}
+        >
+          Toogle Cars
+        </button>
 
-        <div style={appStyle.cars}>
+        <div className="cars">
           {this.state.showCars &&
             this.state.cars.map((car, index) => (
               <Car
