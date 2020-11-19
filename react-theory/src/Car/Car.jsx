@@ -1,27 +1,7 @@
 import React from 'react';
-// import Radium from 'radium';
 import './Car.scss';
 
 class Car extends React.Component {
-  componentWillReceiveProps(nextProps) {
-    console.log('Car componentWillReceiveProps', nextProps);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('Car shouldComponentUpdate', nextProps, nextState);
-
-    return nextProps.name.trim() !== this.props.name.trim();
-    return true;
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    // console.log('Car componentWillUpdate', nextProps, nextState);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('Car componentDidUpdate');
-  }
-
   render() {
     console.log('Car render');
 

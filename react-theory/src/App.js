@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Car from './Car/Car';
 import './App.scss';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Counter from './Counter/Counter';
 
 class App extends Component {
   constructor(props) {
@@ -58,7 +60,10 @@ class App extends Component {
     return (
       <div className="container">
         <h1>{this.state.pageTitle}</h1>
-        {/* <h1>{this.props.title}</h1> */}
+
+        <Counter />
+        <hr />
+
         <button
           className="toogle-btn"
           onClick={this.toogleCarsHandle}
@@ -69,15 +74,16 @@ class App extends Component {
         <div className="cars">
           {this.state.showCars &&
             this.state.cars.map((car, index) => (
-              <Car
-                key={index}
-                name={car.name}
-                year={car.year}
-                onChangeName={(event) =>
-                  this.handleChangeName(event.target.value, index)
-                }
-                removeCar={this.handleRemoveCar.bind(this, index)}
-              />
+              <ErrorBoundary key={index}>
+                <Car
+                  name={car.name}
+                  year={car.year}
+                  onChangeName={(event) =>
+                    this.handleChangeName(event.target.value, index)
+                  }
+                  removeCar={this.handleRemoveCar.bind(this, index)}
+                />
+              </ErrorBoundary>
             ))}
         </div>
       </div>
