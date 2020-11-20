@@ -8,16 +8,6 @@ class Car extends React.Component {
     const { name, year, onChangeName, removeCar } = this.props;
     const inputClasses = ['input'];
 
-    const style = {
-      border: '1px solid grey',
-      boxShadow: '0 4px 5px 0 rgba(0, 0, 0, 0.14)',
-      ':hover': {
-        border: '1px solid #aaa',
-        boxShadow: '0 4px 15px 0 rgba(0, 0, 0, 0.25)',
-        cursor: 'pointer',
-      },
-    };
-
     if (this.props.name) {
       inputClasses.push('green');
     } else {
@@ -29,7 +19,7 @@ class Car extends React.Component {
     }
 
     return (
-      <div className="Car" style={style}>
+      <div className="Car">
         <p>
           Car name: <strong>{name}</strong>
         </p>
