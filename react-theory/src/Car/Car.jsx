@@ -1,8 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import withClass from '../hoc/withClass';
 import './Car.scss';
 
 class Car extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.inputRef = React.createRef();
+  }
+
+  componentDidMount() {
+    if (this.props.index === 0) {
+      this.inputRef.current.focus();
+    }
+  }
+
   render() {
     const { name, year, onChangeName, removeCar } = this.props;
     const inputClasses = ['input'];
@@ -26,6 +39,7 @@ class Car extends React.Component {
           Year: <strong>{year}</strong>
         </p>
         <input
+          ref={this.inputRef}
           type="text"
           className={inputClasses.join(' ')}
           value={name}
@@ -36,5 +50,13 @@ class Car extends React.Component {
     );
   }
 }
+
+Car.propTypes = {
+  year: PropTypes.number,
+  index: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  removeCar: PropTypes.func,
+  onChangeName: PropTypes.func,
+};
 
 export default withClass(Car, 'Car');

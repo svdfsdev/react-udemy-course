@@ -17,9 +17,10 @@
 .input {
 }
 
-.input:active,
-.input:focus {
+.input:focus,
+.input:active {
   outline: none;
+  outline: blue;
 }
 
 .input.green {

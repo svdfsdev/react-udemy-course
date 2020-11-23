@@ -11,20 +11,12 @@ class App extends Component {
     this.state = {
       cars: [
         { name: 'Ford', year: 2018 },
-        // { name: 'Audi', year: 2016 },
-        // { name: 'Mazda', year: 2010 },
+        { name: 'Audi', year: 2016 },
+        { name: 'Mazda', year: 2010 },
       ],
       pageTitle: 'React components',
       showCars: false,
     };
-  }
-
-  componentWillMount() {
-    console.log('App componentWillMount');
-  }
-
-  componentDidMount() {
-    console.log('App componentDidMount');
   }
 
   changeTitleHandler = (newTitle) => {
@@ -55,8 +47,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('App render');
-
     return (
       <div className="container">
         <h1>{this.state.pageTitle}</h1>
@@ -76,6 +66,7 @@ class App extends Component {
             this.state.cars.map((car, index) => (
               <ErrorBoundary key={index}>
                 <Car
+                  index={index}
                   name={car.name}
                   year={car.year}
                   onChangeName={(event) =>

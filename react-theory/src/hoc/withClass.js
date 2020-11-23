@@ -1,10 +1,10 @@
 import React from 'react';
 
 const withClass = (Component, className) => {
-  return () => {
+  return (props) => {
     return (
       <div className={className}>
-        <Component />
+        <Component {...props} />
       </div>
     );
   };
