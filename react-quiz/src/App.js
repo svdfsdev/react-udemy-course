@@ -1,5 +1,5 @@
-const { default: Quiz } = require('./containers/Quiz/Quiz');
-const { default: Layout } = require('./hoc/Layout/Layout');
+import Quiz from './containers/Quiz/Quiz';
+import Layout from './hoc/Layout/Layout';
 
 function App() {
   return (

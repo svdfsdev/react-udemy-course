@@ -1,6 +1,7 @@
 import React from 'react';
+import AnswersList from '../AnswerList/AnswersList';
 import classes from './ActiveQuiz.module.scss';
-import AnswersList from './AnswersList/AnswersList';
+// import AnswersList from './AnswersList/AnswersList';
 
 const ActiveQuiz = (props) => {
   const {
@@ -21,6 +22,7 @@ const ActiveQuiz = (props) => {
         </span>
         <small>{`${answerNumber} of ${quizLength}`}</small>
       </p>
+
       <AnswersList
         answers={answers}
         onAnswerClick={onAnswerClick}
