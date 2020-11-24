@@ -3,7 +3,7 @@ import classes from './AnswersList.module.scss';
 import AnswerItem from './AnswersItem/AnswerItem';
 
 const AnswersList = (props) => {
-  const { onAnswerClick } = props;
+  const { onAnswerClick, answerState } = props;
 
   return (
     <ul className={classes.AnswersList}>
@@ -13,6 +13,7 @@ const AnswersList = (props) => {
             answer={answer}
             key={index}
             onAnswerClick={onAnswerClick}
+            answerState={answerState ? answerState[answer.id] : null}
           />
         );
       })}

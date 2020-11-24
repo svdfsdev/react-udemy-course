@@ -9,6 +9,7 @@ const ActiveQuiz = (props) => {
     onAnswerClick,
     answerNumber,
     quizLength,
+    answerState,
   } = props;
 
   return (
@@ -20,7 +21,11 @@ const ActiveQuiz = (props) => {
         </span>
         <small>{`${answerNumber} of ${quizLength}`}</small>
       </p>
-      <AnswersList answers={answers} onAnswerClick={onAnswerClick} />
+      <AnswersList
+        answers={answers}
+        onAnswerClick={onAnswerClick}
+        answerState={answerState}
+      />
     </div>
   );
 };
