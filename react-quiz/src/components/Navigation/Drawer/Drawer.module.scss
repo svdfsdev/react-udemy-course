@@ -9,7 +9,7 @@
   box-sizing: border-box;
   background: #fff;
   transform: translateX(0px);
-  transition: translate 0.22s ease-in;
+  transition: transform 0.22s ease-in;
   z-index: 90;
 
   ul {
@@ -27,7 +27,7 @@
         background: #fff;
         position: relative;
         padding: 0 20px 10px 20px;
-        transition: opacity 0.3s;
+        transition: opacity 0.22s;
 
         :hover,
         .active {
