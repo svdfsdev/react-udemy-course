@@ -18,11 +18,11 @@ class Auth extends Component {
           email: true,
         },
       },
-      passward: {
+      password: {
         value: '',
-        type: 'passward',
-        label: 'Passward',
-        errorMessage: 'Input correct passward',
+        type: 'password',
+        label: 'Password',
+        errorMessage: 'Input correct password',
         valid: false,
         touched: false,
         validation: {
@@ -41,8 +41,44 @@ class Auth extends Component {
     event.preventDefault();
   };
 
+  validateControl = (value, validation) => {
+    if (!validation) {
+      return true;
+    }
+
+    let isValid = true;
+
+    if (validation.required) {
+      isValid = value.trim() && isValid;
+    }
+
+    if (validation.email) {
+      const regExpEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+      const validateEmail = regExpEmail.test(value.toLowerCase());
+
+      isValid = validateEmail && isValid;
+    }
+
+    if (validation.minLength) {
+      isValid = value.length >= validation.minLength && isValid;
+    }
+
+    return isValid;
+  };
+
   onChangeHandler = (event, controlName) => {
-    console.log(`${controlName}: `, event.target.value);
+    const formControls = { ...this.state.formControls };
+    const control = { ...formControls[controlName] };
+
+    control.value = event.target.value;
+    control.touched = true;
+    control.valid = this.validateControl(
+      control.value,
+      control.validation
+    );
+    formControls[controlName] = control;
+
+    this.setState({ formControls });
   };
 
   renderInputs = () => {
@@ -58,7 +94,7 @@ class Auth extends Component {
             valid={control.valid}
             touched={control.touched}
             label={control.label}
-            shouldValidation={!!control.validation}
+            shouldValidate={!!control.validation}
             errorMessage={control.errorMessage}
             onChange={(event) =>
               this.onChangeHandler(event, controlName)
@@ -82,12 +118,14 @@ class Auth extends Component {
             className={classes.AuthForm}
           >
             {this.renderInputs()}
-            <Button type="success" onClick={this.loginHandler}>
-              Login
-            </Button>
-            <Button type="primary" onClick={this.registerHandler}>
-              register
-            </Button>
+            <div>
+              <Button type="success" onClick={this.loginHandler}>
+                Login
+              </Button>
+              <Button type="primary" onClick={this.registerHandler}>
+                register
+              </Button>
+            </div>
           </form>
         </div>
       </div>

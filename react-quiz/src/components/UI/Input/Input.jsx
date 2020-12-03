@@ -7,7 +7,9 @@ const isInvalid = ({ valid, touched, shouldValidate }) => {
 
 const Input = (props) => {
   const { type, label, value, onChange, errorMessage } = props;
+
   const cls = [classes.Input];
+
   const inputType = type || 'text';
   const htmlFor = `${inputType}-${Math.random()}`;
 
