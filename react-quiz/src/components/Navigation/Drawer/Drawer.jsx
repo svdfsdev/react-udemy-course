@@ -6,7 +6,7 @@ import classes from './Drawer.module.scss';
 const links = [
   { to: '/', label: 'Tests  list', exact: true },
   { to: '/auth', label: 'Authorization', exact: false },
-  { to: '/quiz-creator', label: 'Create test', exact: false },
+  { to: '/quiz-creater', label: 'Create test', exact: false },
 ];
 
 class Drawer extends Component {
