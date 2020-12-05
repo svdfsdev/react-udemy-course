@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import classes from './Auth.module.scss';
 import Button from './../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
+import axios from 'axios';
+import {
+  firebaseApiKey,
+  firebaseSignInUrl,
+  firebaseSignUpUrl,
+} from '../../helpers';
 
 class Auth extends Component {
   state = {
@@ -34,9 +40,35 @@ class Auth extends Component {
     },
   };
 
-  loginHandler = () => {};
+  loginHandler = async () => {
+    const authUrl = firebaseSignInUrl + firebaseApiKey;
+    const authData = {
+      email: this.state.formControls.email.value,
+      password: this.state.formControls.password.value,
+      returnSecureToken: true,
+    };
 
-  registerHandler = () => {};
+    try {
+      const response = await axios.post(authUrl, authData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  registerHandler = async () => {
+    const authUrl = firebaseSignUpUrl + firebaseApiKey;
+    const authData = {
+      email: this.state.formControls.email.value,
+      password: this.state.formControls.password.value,
+      returnSecureToken: true,
+    };
+
+    try {
+      const response = await axios.post(authUrl, authData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   submitHandler = (event) => {
     event.preventDefault();

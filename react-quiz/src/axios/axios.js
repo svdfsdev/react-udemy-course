@@ -1,5 +1,6 @@
 import axios from 'axios';
+import { firebaseUrl } from '../helpers';
 
 export default axios.create({
-  baseURL: 'https://react-quiz-dedc2-default-rtdb.firebaseio.com/',
+  baseURL: firebaseUrl,
 });
