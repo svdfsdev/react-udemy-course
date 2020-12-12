@@ -1,7 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Alert } from './alert/Alert';
+import { AlertProvider } from './alert/AlertContext';
+import { Main } from './Main';
 
 const App = () => {
-  return <div></div>;
+  return (
+    <AlertProvider>
+      <div className="container pt-3">
+        <Alert />
+        <Main />
+      </div>
+    </AlertProvider>
+  );
 };
 
 export default App;
