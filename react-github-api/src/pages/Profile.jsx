@@ -86,7 +86,14 @@ export const Profile = ({ match }) => {
                 {blog && (
                   <li>
                     <strong>Website: </strong>
-                    {blog}
+                    <a
+                      href={blog}
+                      className="btn btn-link"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      LinkedIn page
+                    </a>
                   </li>
                 )}
               </ul>
