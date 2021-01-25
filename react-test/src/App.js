@@ -17,11 +17,18 @@ const App = ({ side }) => {
   const filteredChars = characters.filter((char) => char.side === side)
 
   return (
-    <ul>
-      {filteredChars.map((char, index) => (
-        <Character key={char.name + index} name={char.name} side={char.side} />
-      ))}
-    </ul>
+    <>
+      <h1>Hello world!</h1>
+      <ul>
+        {filteredChars.map((char, index) => (
+          <Character
+            key={char.name + index}
+            name={char.name}
+            side={char.side}
+          />
+        ))}
+      </ul>
+    </>
   )
 }
 
